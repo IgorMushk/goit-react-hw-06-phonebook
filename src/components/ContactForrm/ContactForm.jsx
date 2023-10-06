@@ -38,6 +38,7 @@ export function ContactForm() {
         number: form.number.value
     }
     dispatch(addClient(newContact));
+    form.reset();
     //createContactItem(newContact);
     //setName('');
     //setNumber('');
