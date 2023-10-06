@@ -17,14 +17,3 @@ export const ContactList = ({onDeleteContact}) => {
 </List>
 )};//
 
-// export const ContactList = ({contacts, onDeleteContact}) => {
-//   // console.log('ContactList :>>', contacts)
-// return  (
-// <List>
-// {contacts.map(({id, name, number}) => (
-// <Item key={id}>
-//    <ItemText>{name}: {number} </ItemText>
-//    <Button onClick={()=>onDeleteContact(id)}>Delite</Button> </Item>
-//    ))}
-// </List>
-// )};//

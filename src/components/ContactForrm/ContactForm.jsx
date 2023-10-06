@@ -1,40 +1,46 @@
 import { nanoid } from 'nanoid';
 import { Button, Form, Inpute, Label } from './ContactForm.Styled';
+import { useDispatch } from 'react-redux';
+import { addClient } from 'redux/store';
 
 //const { Component } = require('react');
 
-import React, { useState } from 'react';
+//import React, { useState } from 'react';
 
-export function ContactForm({ createContactItem }) {
-  const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+export function ContactForm() {
+  // const [name, setName] = useState('');
+  // const [number, setNumber] = useState('');
+  const dispatch = useDispatch();
 
-  const handlerChange = evt => {
-    //console.dir(evt.target.name);
-    //console.dir(evt.target.value);
-    const {name, value} = evt.target
-    switch (name) {
-      case 'name':
-        setName(value);
-        break;
-      case 'number':
-        setNumber(value);
-        break;
-      default:
-        return;
-    }
-  };
+  //const handlerChange = evt => {
+  //  //console.dir(evt.target.name);
+  //  //console.dir(evt.target.value);
+  //   const {name, value} = evt.target
+  //   switch (name) {
+  //     case 'name':
+  //       setName(value);
+  //       break;
+  //     case 'number':
+  //       setNumber(value);
+  //       break;
+  //     default:
+  //       return;
+  //   }
+  // };
 
   const handlerSubmit = evt => {
     evt.preventDefault();
+    const form = evt.target;
+    console.dir(evt.target);
     const newContact ={
         id: nanoid(),
-        name: name,
-        number: number
+        name: form.name.value,
+        number: form.number.value
     }
-    createContactItem(newContact);
-    setName('');
-    setNumber('');
+    dispatch(addClient(newContact));
+    //createContactItem(newContact);
+    //setName('');
+    //setNumber('');
 };
 
   return (
@@ -49,8 +55,8 @@ export function ContactForm({ createContactItem }) {
             pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required
-            value={name}
-            onChange={handlerChange}
+            //value={name}
+            //onChange={handlerChange}
           />
         </Label>
         <Label>
@@ -62,8 +68,8 @@ export function ContactForm({ createContactItem }) {
             pattern="\+?\d{1,4}?[\-.\s]?\(?\d{1,3}?\)?[\-.\s]?\d{1,4}[\-.\s]?\d{1,4}[\-.\s]?\d{1,9}"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
-            value={number}
-            onChange={handlerChange}
+            //value={number}
+            //onChange={handlerChange}
           />
         </Label>
         <Button type="submit">Add Contact</Button>
