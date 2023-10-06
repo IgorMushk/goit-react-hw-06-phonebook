@@ -10,16 +10,16 @@ export const delClient = createAction("clients/delClient");
 
 //console.log(addClient({name: 'Имя клиента', number: '11111111111' }));
 
-const contactReduser = createReducer(contacts, {
+const contactReducer = createReducer(contacts, {
   [addClient]: (state, action) => {return [...state, action.payload];},
   [delClient]: (state, action) => {return state.filter(contact => contact.id !== action.payload);},
 })
-const filterReduser = createReducer('', {})
+const filterReducer = createReducer('', {})
 
 export const store = configureStore({
     reducer: {
-      contacts: contactReduser,
-      filter: filterReduser
+      contacts: contactReducer,
+      filter: filterReducer
     },
   });
   
