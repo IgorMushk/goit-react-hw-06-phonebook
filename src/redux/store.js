@@ -14,12 +14,12 @@ const contactReduser = createReducer(contacts, {
   [addClient]: (state, action) => {return [...state, action.payload];},
   [delClient]: (state, action) => {return state.filter(contact => contact.id !== action.payload);},
 })
-const contactFilter = createReducer('', {})
+const filterReduser = createReducer('', {})
 
 export const store = configureStore({
     reducer: {
       contacts: contactReduser,
-      filter: contactFilter
+      filter: filterReduser
     },
   });
   
