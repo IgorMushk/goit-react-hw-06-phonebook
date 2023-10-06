@@ -2,6 +2,7 @@ import { nanoid } from 'nanoid';
 import { Button, Form, Inpute, Label } from './ContactForm.Styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { addClient } from 'redux/contactsSlice';
+import { getContacts } from 'redux/selectors';
 //import { addClient } from 'redux/store';
 
 //const { Component } = require('react');
@@ -12,7 +13,7 @@ export function ContactForm() {
   // const [name, setName] = useState('');
   // const [number, setNumber] = useState('');
   const dispatch = useDispatch();
-  const contacts  = useSelector(state => state.contacts)
+  const contacts  = useSelector(getContacts)
   //const handlerChange = evt => {
   //  //console.dir(evt.target.name);
   //  //console.dir(evt.target.value);
