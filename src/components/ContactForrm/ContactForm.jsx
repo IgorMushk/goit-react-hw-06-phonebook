@@ -31,7 +31,7 @@ export function ContactForm() {
   const handlerSubmit = evt => {
     evt.preventDefault();
     const form = evt.target;
-    console.dir(evt.target);
+    console.dir('ContactForm - evt.target ',evt.target);
     const checkContactList = contacts.some(
       contact => contact.name.toLowerCase() === form.name.value.toLowerCase()
     );
