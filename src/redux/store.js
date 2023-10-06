@@ -4,13 +4,15 @@ import contacts from '../data/contacts.json';
 
 //console.log(contacts)
 
-export const addClient = createAction("clients/addClient"
-  
-);
+export const addClient = createAction("clients/addClient");
+export const delClient = createAction("clients/delClient");
 
-console.log(addClient({name: 'Имя клиента', number: '11111111111' }));
+//console.log(addClient({name: 'Имя клиента', number: '11111111111' }));
 
-const contactReduser = createReducer(contacts, {})
+const contactReduser = createReducer(contacts, {
+  [addClient]: (state, action) => {return [...state, action.payload];},
+  [delClient]: (state, action) => {return state.filter(task => task.id !== action.payload);},
+})
 const contactFilter = createReducer('', {})
 
 export const store = configureStore({
