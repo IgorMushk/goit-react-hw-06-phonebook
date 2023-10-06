@@ -3,37 +3,15 @@ import { Button, Form, Inpute, Label } from './ContactForm.Styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { addClient } from 'redux/contactsSlice';
 import { getContacts } from 'redux/selectors';
-//import { addClient } from 'redux/store';
-
-//const { Component } = require('react');
-
-//import React, { useState } from 'react';
 
 export function ContactForm() {
-  // const [name, setName] = useState('');
-  // const [number, setNumber] = useState('');
   const dispatch = useDispatch();
   const contacts  = useSelector(getContacts)
-  //const handlerChange = evt => {
-  //  //console.dir(evt.target.name);
-  //  //console.dir(evt.target.value);
-  //   const {name, value} = evt.target
-  //   switch (name) {
-  //     case 'name':
-  //       setName(value);
-  //       break;
-  //     case 'number':
-  //       setNumber(value);
-  //       break;
-  //     default:
-  //       return;
-  //   }
-  // };
 
   const handlerSubmit = evt => {
     evt.preventDefault();
     const form = evt.target;
-    console.dir('ContactForm - evt.target ',evt.target);
+    //console.dir('ContactForm - evt.target ',evt.target);
     const checkContactList = contacts.some(
       contact => contact.name.toLowerCase() === form.name.value.toLowerCase()
     );
@@ -48,9 +26,6 @@ export function ContactForm() {
     }
     dispatch(addClient(newContact));
     form.reset();
-    //createContactItem(newContact);
-    //setName('');
-    //setNumber('');
 };
 
   return (
@@ -65,8 +40,6 @@ export function ContactForm() {
             pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required
-            //value={name}
-            //onChange={handlerChange}
           />
         </Label>
         <Label>
@@ -78,8 +51,6 @@ export function ContactForm() {
             pattern="\+?\d{1,4}?[\-.\s]?\(?\d{1,3}?\)?[\-.\s]?\d{1,4}[\-.\s]?\d{1,4}[\-.\s]?\d{1,9}"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
-            //value={number}
-            //onChange={handlerChange}
           />
         </Label>
         <Button type="submit">Add Contact</Button>

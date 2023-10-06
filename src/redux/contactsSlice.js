@@ -3,11 +3,9 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const contactsSlice = createSlice({
     name: 'clients',
-    //initialState: contacts,
     initialState: {contactsList: [...contacts]},
     reducers:{
       addClient(state,action) {
-        //return [...state, action.payload]
         state.contactsList.push(action.payload)
       },
       delClient(state,action) {
@@ -18,7 +16,7 @@ const contactsSlice = createSlice({
       },
     }
   })
-  console.log('contactsSlice >>', contactsSlice);
+  //console.log('contactsSlice >>', contactsSlice);
 
   export const {addClient, delClient } = contactsSlice.actions;
   export const contactReducer = contactsSlice.reducer

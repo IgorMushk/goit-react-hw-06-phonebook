@@ -5,23 +5,18 @@ import { delClient } from "redux/contactsSlice";
 import { getContacts, getFilterValue } from "redux/selectors";
 
 export const ContactList = ({onDeleteContact}) => {
-  //const contacts  = useSelector(state => state.contacts)
   const contacts  = useSelector(getContacts)
-  console.log('ContactList-contacts :>>', contacts)
+  //console.log('ContactList-contacts :>>', contacts)
   const dispatch = useDispatch();
-  //const filterValue = useSelector(state => state.filter);
   const filterValue = useSelector(getFilterValue);
-  console.log('ContactList-filter :>>', filterValue);
+  //console.log('ContactList-filter :>>', filterValue);
 
   const getFilteredContats = () => {
-    //console.log('filter', filter);
     const filteredContats = contacts.filter(contact =>
       contact.name.toLowerCase().includes(filterValue.toLowerCase())
     );
-    //console.log('---getFilteredContats', filteredContats);
     return filteredContats;
   };
-  //console.log('filteredContats :', getFilteredContats());
 
  return  (
 <List>
