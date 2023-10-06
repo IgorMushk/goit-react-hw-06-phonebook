@@ -1,4 +1,5 @@
-import { configureStore, nanoid } from '@reduxjs/toolkit';
+//import { configureStore, nanoid } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import { createAction, createReducer } from "@reduxjs/toolkit";
 import contacts from '../data/contacts.json';
 
@@ -11,7 +12,7 @@ export const delClient = createAction("clients/delClient");
 
 const contactReduser = createReducer(contacts, {
   [addClient]: (state, action) => {return [...state, action.payload];},
-  [delClient]: (state, action) => {return state.filter(task => task.id !== action.payload);},
+  [delClient]: (state, action) => {return state.filter(contact => contact.id !== action.payload);},
 })
 const contactFilter = createReducer('', {})
 
