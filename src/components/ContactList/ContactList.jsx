@@ -1,6 +1,7 @@
 import { Button, Item, ItemText, List } from "./ContactList.styled.";
 import { useDispatch, useSelector } from 'react-redux';
-import { delClient } from "redux/store";
+//import { delClient } from "redux/store";
+import { delClient } from "redux/contactsSlice";
 
 export const ContactList = ({onDeleteContact}) => {
   const contacts  = useSelector(state => state.contacts)

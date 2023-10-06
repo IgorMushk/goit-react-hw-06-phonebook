@@ -1,7 +1,8 @@
 import { nanoid } from 'nanoid';
 import { Button, Form, Inpute, Label } from './ContactForm.Styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { addClient } from 'redux/store';
+import { addClient } from 'redux/contactsSlice';
+//import { addClient } from 'redux/store';
 
 //const { Component } = require('react');
 

@@ -1,5 +1,6 @@
 //import { FiterContainer, Inpute, Label } from './FilterByName.styled';
-import { setFilter } from 'redux/store';
+//import { setFilter } from 'redux/store';
+import { setFilter } from 'redux/filterSlice';
 import { Inpute, Label } from './FilterByName.styled';
 import { useDispatch } from 'react-redux';
 
